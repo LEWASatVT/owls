@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Online Watershed Learning System &#40OWLS&#41</title>
+   <link rel='stylesheet' type='text/css' href='owls_new.css'>
+		<script src="http://d3js.org/d3.v3.min.js"></script> <!-- d3 library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!--jQuery from Google -->
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore.js"></script>
+   <link rel='icon' type='image/png' href='http://www.lewas.centers.vt.edu/dataviewer/favicon.png' />
+
+   <!--Google Analytics Tracking
+   <script src="uuid.js"></script>
+   
+   <script>
+     
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+     ga('create', 'UA-68640311-1', 'auto');
+     
+     /* If the browser_id hasn't already been set... */
+     if (document.cookie.indexOf('browser_uuid_set=1') == -1) {
+
+
+	 /* Generate a UUID, and assign it to the browser_id custom dimension */
+	 ga('set', 'dimension1', uuid.v4());
+	
+	 /* Set a cookie so we won't override the UUID we just set */
+	 document.cookie = 'browser_uuid_set=1; expires=Fri, 01 Jan 2100 12:00:00 UTC; domain=www.lewas.centers.vt.edu; path=/dataviewer';
+     }
+
+     /* Assign a timestamp to the utc_millisecs custom dimension */
+     ga('set', 'dimension2', new Date().getTime());
+
+     ga('send', 'pageview');
+    </script>
+	-->
+</head>
+
+<body>
+	<div id="shell">
+		<div id="box">
+			<div id="titleBar">Webb Branch Watershed - Live LEWAS Data (Takes a few seconds to load)</div>		
+			<div id="graph">
+				<link rel='stylesheet' type='text/css' href='owls_new.css'>
+				<script type="text/javascript" src="owls_new.js"></script>
+			</div>
+			<div id="sidebar">
+				<p id="dropdownLabel" class="dropdownLabels">Axis 1</p>
+				<select id="dropdown" class="dropdowns" onchange="load(this)"></select>
+				
+				<p id="dropdownLabel2" class="dropdownLabels">Axis 2 (Show?____)</p>
+				<select id="dropdown2" class="dropdowns" onchange="load2(this)"></select>
+				<input type="checkbox" id="chbx2" onchange="onCheck2(this)" checked>
+				
+				<p id="dropdownLabel3" class="dropdownLabels">Axis 3 (Show?____)</p>
+				<select id="dropdown3" class="dropdowns" onchange="load3(this)"></select>
+				<input type="checkbox" id="chbx3" onchange="onCheck3(this)" checked>
+				
+				<button id="refresh" onclick="refreshGraph()">Refresh</button>
+			</div>
+			<div id="navigation">
+				<div id="nav1"> 
+					<a href="index.html" class="linkText">Home</a>
+				</div>
+				<div id="nav2" class="linkText">
+						<a href="rawData.html" class="linkText">Data Download</a>
+						|
+						<a href="radar.html" class="linkText">NWS Doppler Radar</a>
+				</div>
+				<div id="nav3"> 
+					<a href="g_index.html" class="linkText">Glossary</a>
+				</div>
+			</div>
+			<div id="lewasLogo">
+			<a href='http://www.lewas.centers.vt.edu/' target='_blank'>
+					<img src='img/LEWAS_logo3_OWLS.png' alt='LEWAS Lab Logo'>
+			</a>
+			</div>
+		</div>
+	</div>
+	<!-- 
+		<div class="graph"> 
+		
+		</div>
+		
+		
+			
+		
+		
+		
+		<div class="liveView">
+		
+		</div>
+		
+		<div class="bottomBar">
+		
+		</div>
+		
+	</div>
+	 --> 
+</body>
+</html>
+
+									

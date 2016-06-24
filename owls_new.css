@@ -1,0 +1,280 @@
+html {
+   height:100%;
+   width:100%;
+   min-height: 540px;}
+	 
+body {
+   /* text-align:center; */
+   font-size:100%;
+   height:100%;
+   width:100%;
+   margin:0;
+   padding:0;
+   background-color: #373535;
+   font-family: "Arial Unicode MS", Calibri, "Lucida Grande" , sans-serif;
+   min-height: 540px;
+}
+
+div#shell {
+	position:fixed;
+	top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+	background-color: #60A060;
+}
+
+div#box {
+	width: 960px;
+	height: 540px;
+	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #373535;
+	position: relative;
+}
+
+div#titleBar {
+	color: #ccffff;
+	font-size: 1.25em;
+    line-height: 125%;
+}
+
+div#graph {
+	width: 720px;
+	height: 460px;
+	float: left;
+	text-align:left;
+}
+
+div#sidebar {
+	width: 200px;
+	height: 460px;
+	background-color: white;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: right;
+	float: right;
+}
+
+div#navigation {
+	width: 720px;
+	height: 40px;
+	position: absolute;
+	float: left;
+	padding: 0px;
+	bottom:0;
+    background-color: #045F9D;
+    display: block;
+}
+
+#nav1 {	
+	width: 15%;
+	margin: 0;
+	text-align: left;
+	float: left;
+	position: relative;
+}
+
+#nav2 {
+	width: 70%;
+	float: left;
+	text-align: center;
+}
+
+#nav3 {
+	width: 15%;
+	float: right;
+	text-align: right;
+}
+
+.linkText {
+	color: white;
+}
+
+#lewasLogo {
+	height: 40;
+	width: 240;	
+	float: right;
+	bottom: 0;
+	position: relative;
+	margin-top: 15px;
+}
+
+.title {
+	 font-size: 150%;
+	 font-weight: bold;	
+}
+
+.dropdownLabels {
+	position: fixed;
+	margin-left: 10px;
+}
+
+.dropdowns {
+	position: relative;
+	font-size: 12px;
+	width: 160px;
+	float: left;
+	margin-left: 10px;
+}
+
+#dropdownLabel {
+	color: steelblue;
+	top: 40px;
+}
+
+#dropdown {
+	color: steelblue;
+	top: 60px;
+}
+
+#dropdownLabel2 {
+	color: red;
+	top: 100px;
+}
+
+#chbx2 {
+	position: relative;
+	top: 92px;
+	right: 60px;
+}
+
+#dropdown2 {
+	color: red;
+	top: 100px;
+}
+
+#dropdownLabel3 {
+	color: green;
+	top: 160px;
+}
+
+#chbx3 {
+	position: relative;
+	top: 130px;
+	right: 60px;
+}
+
+#dropdown3 {
+	color: green;
+	top: 140px;
+} 
+
+#refresh {
+	position: relative;
+	top: 150px;
+	float: left;
+	margin-left: 10px;
+}
+
+/* Lines */
+#line1 {
+	stroke: steelblue;
+	stroke-width: 3;
+	fill: none; 
+	shape-rendering: optimizeSpeed;
+}
+
+#line2 {
+	stroke: red;
+	stroke-width: 2;
+	fill: none; 
+	shape-rendering: optimizeSpeed;
+}
+
+#line3 {
+	stroke: green;
+	stroke-width: 2;
+	fill: none; 
+	shape-rendering: optimizeSpeed;
+}
+
+/* Axes */
+.x.axis {
+	fill: black;
+	stroke: #000000;
+	stroke-width: 1;
+}
+
+.y1.axis {
+	fill: none;
+	stroke: black;
+	stroke-width: 1;
+}
+
+.y1.axis text {
+	fill: steelblue;
+	stroke: steelblue;
+}
+
+.y2.axis {
+	fill: none;
+	stroke: black;
+	stroke-width: 1;
+}
+
+.y2.axis text {
+	fill: red;
+	stroke: red;
+}
+
+.y3.axis {
+	fill: none;
+	stroke: black;
+	stroke-width: 1;
+}
+
+.y3.axis text {
+	fill: green;
+	stroke: green;
+}
+
+/* Axes labels */
+.xLabel {
+	font-size: 100%;
+	font-weight: bold;
+	text-anchor: middle;
+}
+
+.y1Label {
+	font-size: 100%;
+	text-anchor: middle;
+	fill: steelblue;
+}
+
+.y2Label {
+	font-size: 100%;
+	text-anchor: middle;
+	fill: red;
+}
+
+.y3Label {
+	font-size: 100%;
+	text-anchor: middle;
+	fill: green;
+}
+
+/* Ticks */
+.tick line {
+	stroke: grey;
+	stroke-width: .5;
+	fill: none; 
+	opacity: .2;
+}
+
+/* Tooltips */
+div.tooltip {	
+    position: fixed;			
+    text-align: center;			
+    width: 120px;					
+    height: 35px;					
+    padding: 2px;				
+    font: 100% sans-serif;		
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+
+
+   
