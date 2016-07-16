@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>Online Watershed Learning System &#40OWLS&#41</title>
+	<link rel='stylesheet' type='text/css' href='stacked_bar_graph.css'>
+    <link rel='icon' type='image/png' href='http://www.lewas.centers.vt.edu/dataviewer/favicon.png' />
+	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- d3 library -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> <!-- Jquery -->
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	
+</head>
+
+<body>
+	<div id="shell">
+		<div id="box">
+			<div id="titleBar">Webb Branch Watershed - Live LEWAS Water Quantity Data (Takes a few seconds to load)</div>		
+			<div id="graph">
+				
+				<script type="text/javascript" src="stacked_bar_graph.js"></script> 
+				<div id="datepickerDiv1">
+					<p style="color:#5B9C64">Start Date: <input id="datepicker1" type="text"></p>
+				</div>
+				<div id="datepickerDiv2">
+					<p style="color:#ff0050">End Date: <input id="datepicker2" type="text" onchange="removeGraph()"></p>
+				</div>
+			</div>
+			<div id="sidebar">
+				<div id="inputs">
+					<form>
+						<label><input type="radio" name="mode" value="stacked" onchange="change(this)" checked> Stacked</label>
+						<label><input type="radio" name="mode" value="grouped" onchange="change(this)" > Grouped</label>
+					</form>
+				</div>
+			</div>
+			<div id="navigation">
+				<div id="nav1"> 
+					<a href="index.html" class="linkText">Home</a>
+				</div>
+				<div id="nav2" class="linkText">
+						<a href="rawData.html" class="linkText">Data Download</a>
+						|
+						<a href="radar.html" class="linkText">NWS Doppler Radar</a>
+				</div>
+				<div id="nav3"> 
+					<a href="g_index.html" class="linkText">Glossary</a>
+				</div>
+			</div>
+			<div id="lewasLogo">
+			<a href='http://www.lewas.centers.vt.edu/' target='_blank'>
+					<img src='img/LEWAS_logo3_OWLS.png' alt='LEWAS Lab Logo'>
+			</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+									

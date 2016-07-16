@@ -1,0 +1,165 @@
+html {
+   height:100%;
+   width:100%;
+   min-height: 540px;
+}
+	 
+body {
+   font-size:100%;
+   height:100%;
+   width:100%;
+   margin:0;
+   padding:0;
+   background-color: #373535;
+   font-family: "Arial Unicode MS", Calibri, "Lucida Grande" , sans-serif;
+   min-height: 540px;
+}
+
+div#shell {
+	position:fixed;
+	top:0px;
+    bottom:0px;
+    left:0px;
+    right:0px;
+	background-color: #60A060;
+}
+
+div#box {
+	width: 960px;
+	height: 540px;
+	margin: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #373535;
+	position: relative;
+}
+
+div#titleBar {
+	color: #ccffff;
+	font-size: 1.25em;
+    line-height: 125%;
+}
+
+div#graph {
+	width: 720px;
+	height: 460px;
+	float: left;
+	text-align:left;
+}
+
+.title {
+	 font-size: 150%;
+	 font-weight: bold;	
+}
+div#sidebar {
+	width: 200px;
+	height: 460px;
+	background-color: white;
+	margin-left: 20px;
+	margin-right: 20px;
+	text-align: right;
+	float: right;
+}
+
+/* Date Pickers */
+#datepickerDiv1 {
+	position: absolute;
+	top: 435px;
+	margin-left: 10px;
+}
+
+#datepicker1, #datepicker2 {
+	width: 100px;
+}
+#datepickerDiv2 {
+	position: absolute;
+	top: 435px;
+	left: 525px;
+}
+
+#inputs {
+	position: relative;
+	top: 20px;
+	text-align: center;
+}
+
+.legend {
+	font: sans-serif;
+	font-size: 20px; 
+	text-anchor: end;
+}
+div#navigation {
+	width: 720px;
+	height: 40px;
+	position: absolute;
+	float: left;
+	padding: 0px;
+	bottom:0;
+    background-color: #045F9D;
+    display: block;
+}
+
+#nav1 {	
+	width: 15%;
+	margin: 0;
+	text-align: left;
+	float: left;
+	position: relative;
+}
+
+#nav2 {
+	width: 70%;
+	float: left;
+	text-align: center;
+}
+
+#nav3 {
+	width: 15%;
+	float: right;
+	text-align: right;
+}
+
+.linkText {
+	color: white;
+}
+
+#lewasLogo {
+	height: 40;
+	width: 240;	
+	float: right;
+	bottom: 0;
+	position: relative;
+	margin-top: 15px;
+}
+
+/* Axes */
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+/* Axes labels */
+.axisLabel {
+	font-size: 100%;
+	font-weight: bold;
+	text-anchor: middle;
+}
+
+/* Tooltips */
+div.tooltip {	
+    position: absolute;			
+    text-align: center;	
+	background-color: steelblue;
+    width: 250px;					
+    height: 60px;		
+	padding: 2px;				
+    font: 100% sans-serif;		
+    border: 0px;		
+    border-radius: 8px;		
+    pointer-events: none;			
+}
+
+
+   
