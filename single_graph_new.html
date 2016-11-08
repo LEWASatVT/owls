@@ -3,12 +3,14 @@
 <head>
 <meta charset='UTF-8'>
 <title>Online Watershed Learning System &#40OWLS&#41</title>
-   <link rel='stylesheet' type='text/css' href='owls_new.css'>
-		<script src="http://d3js.org/d3.v3.min.js"></script> <!-- d3 library -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
-		<script src="node_modules/babel-core/browser.min.js"></script>
-   <link rel='icon' type='image/png' href='http://www.lewas.centers.vt.edu/dataviewer/favicon.png' />
+    <link rel='stylesheet' type='text/css' href='owls_new.css'> <!-- OWLS css file -->
+    <link rel='icon' type='image/png' href='http://www.lewas.centers.vt.edu/dataviewer/favicon.png'>
+	<script src="http://d3js.org/d3.v3.min.js"></script> <!-- d3 library -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css"> <!-- Jquery -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+	
+	
 </head>
 
 <body>
@@ -16,11 +18,20 @@
 		<div id="box">
 			<div id="titleBar">Webb Branch Watershed - Live LEWAS Data (Takes a few seconds to load)</div>		
 			<div id="graph">
-				<link rel='stylesheet' type='text/css' href='owls_new.css'>
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.10.3/babel.min.js"></script>
-				<script type="text/babel" src="/owls_new.js"></script>
+				<script type="text/javascript" src="owls_new.js"></script> 
+				<div id="datepickerDiv1">
+					<p id="datepickerLabel1">Start Date: <input id="datepicker1" type="text" onchange="flashEndDate()"></p>
+				</div>
+				<div id="datepickerDiv2">
+					<p id="datepickerLabel2">End Date: <input id="datepicker2" type="text" onchange="setQuery()"></p>
+				</div>
 			</div>
 			<div id="sidebar">
+				<p class="dropdownLabels">Units</p>
+				<select id="units" onchange="onUnitChange(this)">
+					<option value="0">SI Units</option>
+					<option value="1">US Common</option>
+				</select>
 				<p id="dropdownLabel1" class="dropdownLabels">Axis 1</p>
 				<select id="dropdown1" class="dropdowns" onchange="load(this, 0)"></select>
 				
@@ -32,7 +43,12 @@
 				<select id="dropdown3" class="dropdowns" onchange="load(this, 2)"></select>
 				<input type="checkbox" id="chbx3" onchange="onCheck(this, 2)" checked>
 				
+				<button id="downloadData" onclick="outputCSV()">Download Data</button>
 				<button id="refresh" onclick="refreshGraph()">Refresh</button>
+
+				<a href='camera.html'>
+					<img alt="LEWAS Field Site" id="camera">
+				</a>
 			</div>
 			<div id="navigation">
 				<div id="nav1"> 
@@ -42,6 +58,8 @@
 						<a href="rawData.html" class="linkText">Data Download</a>
 						|
 						<a href="radar.html" class="linkText">NWS Doppler Radar</a>
+						|
+						<a href="stacked_bar_graph.html" class="linkText">Stacked Bar Graph</a>
 				</div>
 				<div id="nav3"> 
 					<a href="g_index.html" class="linkText">Glossary</a>

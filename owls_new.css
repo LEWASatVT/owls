@@ -5,7 +5,6 @@ html {
 }
 	 
 body {
-   /* text-align:center; */
    font-size:100%;
    height:100%;
    width:100%;
@@ -26,13 +25,14 @@ div#shell {
 }
 
 div#box {
+	position: relative;
 	width: 960px;
 	height: 540px;
 	margin: auto;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: #373535;
-	position: relative;
+	
 }
 
 div#titleBar {
@@ -59,9 +59,10 @@ div#sidebar {
 }
 
 div#navigation {
+	position: absolute;
 	width: 720px;
 	height: 40px;
-	position: absolute;
+	font-size: 1em;
 	float: left;
 	padding: 0px;
 	bottom:0;
@@ -70,22 +71,23 @@ div#navigation {
 }
 
 #nav1 {	
+	position: absolute;
+	left: 10px;
 	width: 15%;
-	margin: 0;
 	text-align: left;
-	float: left;
-	position: relative;
 }
 
 #nav2 {
+	position: absolute;
+	left: 100px;
 	width: 70%;
-	float: left;
 	text-align: center;
 }
 
 #nav3 {
+	position: absolute;
+	left: 600px;
 	width: 15%;
-	float: right;
 	text-align: right;
 }
 
@@ -94,11 +96,11 @@ div#navigation {
 }
 
 #lewasLogo {
+	position: relative;
 	height: 40;
-	width: 240;	
+	width: 200;	
 	float: right;
 	bottom: 0;
-	position: relative;
 	margin-top: 15px;
 }
 
@@ -112,6 +114,10 @@ div#navigation {
 	margin-left: 10px;
 }
 
+#units {
+	position: relative;
+	top: 15px;
+}
 .dropdowns {
 	position: relative;
 	font-size: 12px;
@@ -120,9 +126,10 @@ div#navigation {
 	margin-left: 10px;
 }
 
+/* sidebar dropdowns */
 #dropdownLabel1 {
 	color: steelblue;
-	top: 40px;
+	top: 60px;
 }
 
 #dropdown1 {
@@ -132,13 +139,13 @@ div#navigation {
 
 #dropdownLabel2 {
 	color: red;
-	top: 100px;
+	top: 120px;
 }
 
 #chbx2 {
 	position: relative;
-	top: 92px;
-	right: 60px;
+	top: 110px;
+	right: 35px;
 }
 
 #dropdown2 {
@@ -148,12 +155,12 @@ div#navigation {
 
 #dropdownLabel3 {
 	color: green;
-	top: 160px;
+	top: 180px;
 }
 
 #chbx3 {
 	position: relative;
-	top: 130px;
+	top: 170px;
 	right: 60px;
 }
 
@@ -164,37 +171,55 @@ div#navigation {
 
 #refresh {
 	position: relative;
-	top: 150px;
+	top: 160px;
+	float: left;
+	right: 110px;
+	margin-left: 10px;
+}
+
+#downloadData {
+	position: relative;
+	top: 190px;
 	float: left;
 	margin-left: 10px;
 }
 
-/* Lines */
-#line1 {
-	stroke: steelblue;
-	stroke-width: 3;
-	fill: none; 
-	shape-rendering: optimizeSpeed;
+#camera {
+	position: relative;
+	width: 200px;
+	height: 160px;
+	top: 210px;
+	float: left;
 }
 
-#line2 {
-	stroke: red;
-	stroke-width: 2;
-	fill: none; 
-	shape-rendering: optimizeSpeed;
+/* Date Pickers */
+#datepickerDiv1 {
+	position: absolute;
+	top: 435px;
+	margin-left: 10px;
+}
+#datepickerLabel1 {
+	color: #007f00;
+}
+#datepickerDiv2 {
+	position: absolute;
+	top: 435px;
+	left: 525px;
 }
 
-#line3 {
-	stroke: green;
-	stroke-width: 2;
-	fill: none; 
-	shape-rendering: optimizeSpeed;
+#datepickerLabel2 {
+	color: #ff0000;
 }
+#datepicker1, #datepicker2 {
+	width: 100px;
+}
+
+
 
 /* Axes */
 .xAxis {
 	fill: black;
-	stroke: #000000;
+	stroke: black;
 	stroke-width: 1;
 }
 
@@ -207,6 +232,7 @@ div#navigation {
 .y1Axis text {
 	fill: steelblue;
 	stroke: steelblue;
+	
 }
 
 .y2Axis {
@@ -240,19 +266,22 @@ div#navigation {
 
 .y1Label {
 	font-size: 100%;
-	text-anchor: middle;
+	font-weight: bold;
+	text-anchor: start;
 	fill: steelblue;
 }
 
 .y2Label {
 	font-size: 100%;
+	font-weight: bold;
 	text-anchor: middle;
 	fill: red;
 }
 
 .y3Label {
 	font-size: 100%;
-	text-anchor: middle;
+	font-weight: bold;
+	text-anchor: end;
 	fill: green;
 }
 
@@ -261,14 +290,14 @@ div#navigation {
 	stroke: grey;
 	stroke-width: .5;
 	fill: none; 
-	opacity: .2;
+	opacity: .6;
 }
 
 /* Tooltips */
 div.tooltip {	
     position: fixed;			
     text-align: center;			
-    width: 120px;					
+    width: 130px;					
     height: 35px;					
     padding: 2px;				
     font: 100% sans-serif;		
