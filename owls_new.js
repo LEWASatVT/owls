@@ -22,9 +22,11 @@ var circles = []; //stores three circle types
 var encodedURI = []; //stores three encodedURIs for .csv data download
 
 var commonUS = 0; //0 when units are SI, 1 when units are commonUS
-//var queryTime = 1; //Default number of days to be querried
 var startTime = parseStartDate(getYesterdaysDate());
 var endTime = new Date();
+var inputTime; // user-specified time 
+
+
 //current index of data_items for each set of data points (changes when dropdown item is chosen)
 var currentItem = [0, 1, 2]; 
 var margin = {left: 60, right: 125, top: 70, bottom: 60}; 
@@ -174,8 +176,7 @@ function load(selected, index) {
 
 //Handles drawing and updating the three data plots
 function drawChart(raw_data, index) {
-	console.log(data_items[0]);
-	var formattedData = setTimeInt(formatData((raw_data.data).reverse()));	
+	var formattedData = setTimeInt(formatData((raw_data.data).reverse(), index));	
 	var unitLabel, unitAbbr;
 	[formattedData, unitLabel, unitAbbr] = unitConversion(formattedData, raw_data._embedded.units, index);
 	//Make a button.
@@ -205,8 +206,28 @@ function drawChart(raw_data, index) {
 						.data(dataJSON);
 	circles[index].enter()
 				.append("circle")
-				.style("fill", colors[index]) //Color based on index
-				.attr("r", 2)		
+				.style("fill", function (d) {
+								if (inputTime == null) { return colors[index]; }
+								else {
+									// if user-specified time is within three minutes of data time, then circle is black
+									var difference = Math.abs((d.x).getMinutes() - inputTime.substr(3, 2)); 
+									if ((d.x).getHours() == inputTime.substr(0, 2) && difference <= 3) 
+											return altColors[index]; // If user-specified time
+									else 
+										return colors[index];
+								}
+					}) 
+				.attr("r", function (d) {
+								if (inputTime == null) { return 2; }
+								else {
+									// if user-specified time is within three minutes of data time, then circle is black
+									var difference = Math.abs((d.x).getMinutes() - inputTime.substr(3, 2)); 
+									if ((d.x).getHours() == inputTime.substr(0, 2) && difference <= 3) 
+											return 10; // If user-specified time
+									else 
+										return 2;
+								}
+					}) 	
 				.attr("cx", function(d) { return x(d.x); })		 
 				.attr("cy", function(d) { return y[index](d.y); })		
 				.on("mouseover", function(d) {		
@@ -287,11 +308,10 @@ function drawChart(raw_data, index) {
 		document.getElementById("camera").src = "http://128.173.156.152:3580/nph-jpeg.cgi?0?" + (new Date()).getTime();
 }	
 
-
-
 //Refreshes all plots 
 function refreshGraph() {
 	for (var i in currentItem) {
+		// Only render data for graphs that are already in use
 		if (d3.select(".y" + (Number(i) + 1) + "Axis").size()) {
 			renderData(data_items[currentItem[i]], Number(i));
 		}
@@ -423,11 +443,11 @@ function daysDisplayed(first, second) {
     return Math.ceil((second-first)/(1000*60*60*24));
 }
 // Switches the X and Y axis; converts the UTC data string to a Date object
-function formatData(array) {
+function formatData(array, index) {
 	for (var i in array) {
-        var a = array[i][0];
+        var temp = array[i][0];
         array[i][0] = new Date(array[i][1]);
-        array[i][1] = a;
+        array[i][1] = temp;
     }
     return array;
 }
@@ -486,7 +506,11 @@ d3.selection.prototype.moveToFront = function() {
     this.parentNode.appendChild(this);
   });
 };
-
+//finds specific point based on time input
+function findPointAtTime() {
+    inputTime = document.getElementById("inputTime").value;
+	refreshGraph();
+}
 
 //Returns yesterdays date as Month/Day/Year
 function getYesterdaysDate() {

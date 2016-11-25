@@ -192,7 +192,7 @@ div#navigation {
 	float: left;
 }
 
-/* Date Pickers */
+/* Date and Time Pickers */
 #datepickerDiv1 {
 	position: absolute;
 	top: 435px;
@@ -206,12 +206,16 @@ div#navigation {
 	top: 435px;
 	left: 525px;
 }
-
 #datepickerLabel2 {
 	color: #ff0000;
 }
 #datepicker1, #datepicker2 {
 	width: 100px;
+}
+#timepickerDiv {
+	position: absolute;
+	top: 30px;
+	left: 535px;
 }
 
 
